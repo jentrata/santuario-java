@@ -46,6 +46,7 @@ import org.apache.xml.security.stax.ext.stax.XMLSecStartElement;
  */
 public abstract class AbstractOutputProcessor implements OutputProcessor {
 
+    //todo make them private?
     protected XMLSecurityProperties securityProperties;
     protected XMLSecurityConstants.Action action;
 

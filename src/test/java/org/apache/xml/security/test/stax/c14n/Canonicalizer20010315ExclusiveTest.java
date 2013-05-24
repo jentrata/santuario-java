@@ -42,7 +42,9 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author $Author$
@@ -216,7 +218,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         inclusiveNamespaces.add("xsi");
         inclusiveNamespaces.add("wsu");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
 
         canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
@@ -252,7 +256,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         Canonicalizer20010315_ExclWithCommentsTransformer c = 
                 new Canonicalizer20010315_ExclWithCommentsTransformer();
-        c.setList(inclusiveNamespaces);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
 
         canonicalize(c, new StringReader(stringWriter.toString()), new QName("http://example.net", "elem2"));
@@ -303,7 +309,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             inclusiveNamespaces.add("#default");
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -316,7 +324,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             List<String> inclusiveNamespaces = new ArrayList<String>();
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -375,7 +385,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             inclusiveNamespaces.add("#default");
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -386,7 +398,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             List<String> inclusiveNamespaces = new ArrayList<String>();
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -433,7 +447,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             inclusiveNamespaces.add("#default");
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -445,7 +461,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             List<String> inclusiveNamespaces = new ArrayList<String>();
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -492,7 +510,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             inclusiveNamespaces.add("#default");
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -504,7 +524,9 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
             List<String> inclusiveNamespaces = new ArrayList<String>();
             inclusiveNamespaces.add("xsi");
             Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-            c.setList(inclusiveNamespaces);
+            Map<String, Object> transformerProperties = new HashMap<String, Object>();
+            transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+            c.setProperties(transformerProperties);
             c.setOutputStream(baos);
             canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -548,8 +570,10 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         inclusiveNamespaces.add("#default");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
-        c.setPropagateDefaultNamespace(true);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        transformerProperties.put(Canonicalizer20010315_Excl.PROPAGATE_DEFAULT_NAMESPACE, Boolean.TRUE);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
         canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -588,8 +612,10 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         inclusiveNamespaces.add("#default");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
-        c.setPropagateDefaultNamespace(true);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        transformerProperties.put(Canonicalizer20010315_Excl.PROPAGATE_DEFAULT_NAMESPACE, Boolean.TRUE);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
         canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -628,8 +654,10 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         inclusiveNamespaces.add("#default");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
-        c.setPropagateDefaultNamespace(true);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        transformerProperties.put(Canonicalizer20010315_Excl.PROPAGATE_DEFAULT_NAMESPACE, Boolean.TRUE);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
         canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -668,8 +696,10 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         inclusiveNamespaces.add("#default");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
-        c.setPropagateDefaultNamespace(true);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        transformerProperties.put(Canonicalizer20010315_Excl.PROPAGATE_DEFAULT_NAMESPACE, Boolean.TRUE);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
         canonicalize(c, new StringReader(XML), new QName("http://schemas.xmlsoap.org/soap/envelope/", "Body"));
 
@@ -703,8 +733,10 @@ public class Canonicalizer20010315ExclusiveTest extends org.junit.Assert {
         List<String> inclusiveNamespaces = new ArrayList<String>();
         inclusiveNamespaces.add("#default");
         Canonicalizer20010315_ExclOmitCommentsTransformer c = new Canonicalizer20010315_ExclOmitCommentsTransformer();
-        c.setList(inclusiveNamespaces);
-        c.setPropagateDefaultNamespace(true);
+        Map<String, Object> transformerProperties = new HashMap<String, Object>();
+        transformerProperties.put(Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, inclusiveNamespaces);
+        transformerProperties.put(Canonicalizer20010315_Excl.PROPAGATE_DEFAULT_NAMESPACE, Boolean.TRUE);
+        c.setProperties(transformerProperties);
         c.setOutputStream(baos);
         canonicalize(c, new StringReader(XML), new QName("http://xmlsoap.org/Ping", "Ping"));
 

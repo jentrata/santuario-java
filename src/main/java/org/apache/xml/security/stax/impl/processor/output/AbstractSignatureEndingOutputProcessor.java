@@ -21,6 +21,7 @@ package org.apache.xml.security.stax.impl.processor.output;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.xml.security.exceptions.XMLSecurityException;
 import org.apache.xml.security.stax.ext.*;
+import org.apache.xml.security.stax.impl.transformer.canonicalizer.Canonicalizer20010315_Excl;
 import org.apache.xml.security.stax.securityToken.SecurityTokenProvider;
 import org.apache.xml.security.stax.ext.stax.XMLSecAttribute;
 import org.apache.xml.security.stax.ext.stax.XMLSecEvent;
@@ -38,10 +39,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author $Author$
@@ -231,7 +229,7 @@ public abstract class AbstractSignatureEndingOutputProcessor extends AbstractBuf
 
             final String canonicalizationAlgorithm = getSecurityProperties().getSignatureCanonicalizationAlgorithm();
 
-            List<String> inclusiveNamespacePrefixes = null;
+            Map<String, Object> transformerProperties = null;
             if (getSecurityProperties().isAddExcC14NInclusivePrefixes() &&
                     XMLSecurityConstants.NS_C14N_EXCL.equals(canonicalizationAlgorithm)) {
 
@@ -244,12 +242,15 @@ public abstract class AbstractSignatureEndingOutputProcessor extends AbstractBuf
                     }
                     prefixes.append(prefix);
                 }
-                inclusiveNamespacePrefixes = new ArrayList<String>(prefixSet);
                 this.inclusiveNamespacePrefixes = prefixes.toString();
+
+                transformerProperties = new HashMap<String, Object>(2);
+                transformerProperties.put(
+                        Canonicalizer20010315_Excl.INCLUSIVE_NAMESPACES_PREFIX_LIST, new ArrayList<String>(prefixSet));
             }
 
-            this.transformer = XMLSecurityUtils.getTransformer(inclusiveNamespacePrefixes, this.bufferedSignerOutputStream,
-                    canonicalizationAlgorithm, XMLSecurityConstants.DIRECTION.OUT);
+            this.transformer = XMLSecurityUtils.getTransformer(null, this.bufferedSignerOutputStream,
+                    transformerProperties, canonicalizationAlgorithm, XMLSecurityConstants.DIRECTION.OUT);
 
             super.init(outputProcessorChain);
         }
