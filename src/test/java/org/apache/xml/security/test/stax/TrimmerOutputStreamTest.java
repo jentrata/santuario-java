@@ -23,7 +23,7 @@ import org.junit.Test;
 
 import org.apache.xml.security.stax.impl.util.TrimmerOutputStream;
 
-import java.io.ByteArrayOutputStream;
+import java.io.*;
 
 /**
  * @author $Author$
